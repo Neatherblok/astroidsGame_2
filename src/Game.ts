@@ -105,9 +105,9 @@ class Game {
         //2. draw current score
         this.text("white", 20, "right", `Your score: ${this.score}`, this.canvas.width - 30, 62.5);
         //3. draw random asteroids
-        const amountAstroid = this.randomNumber(0, 5);
+        //const amountAstroid = this.randomNumber(0, 5);
         //console.log(amountAstroid);
-        for (let i = 0; i < amountAstroid; i++) {
+        for (let i = 0; i < 5; i++) {
             this.drawRandomAsteroids();
             //4. draw player spaceship'
         }
@@ -312,12 +312,12 @@ class Game {
         }
         this.image(this.canvas.width / 2 + this.shipXOffset, this.canvas.height / 2 + this.shipYOffset, 1, "", 0, null, "", null, null, "playerShip1_blue");
         console.log(this.asteroids)
-        if (this.asteroids.length < 5) {
+        if (this.asteroids.length <= 5) {
             for (let i = 0; i < this.asteroids.length; i++) {
                 const asteroidArray = (this.asteroids[i]);
                 const functionAsteroid = asteroidArray.split(', ');
 
-                if (Number(functionAsteroid[0]) > -100 && Number(functionAsteroid[0]) < this.canvas.width + 100 && Number(functionAsteroid[1]) > -100 && Number(functionAsteroid[1]) < this.canvas.height + 100) {
+                if (Number(functionAsteroid[0]) > 0 && Number(functionAsteroid[0]) < this.canvas.width && Number(functionAsteroid[1]) > 0 && Number(functionAsteroid[1]) < this.canvas.height) {
                     const asteroidDirection = functionAsteroid[10];
                     if (asteroidDirection == "leftup") {
                         var xAsteroidMove = Number(functionAsteroid[0]) - 1;
